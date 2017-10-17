@@ -12,9 +12,14 @@
     "minimist": "^1.2.0",
     "stream-each": "^1.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
   "bin": {
     "dat-tv": "./bin.js"
+  },
+  "scripts": {
+    "test": "standard"
   },
   "repository": {
     "type": "git",
