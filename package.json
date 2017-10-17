@@ -1,0 +1,29 @@
+{
+  "name": "dat-tv",
+  "version": "0.0.0",
+  "description": "Turn a Dat into a TV",
+  "main": "index.js",
+  "dependencies": {
+    "dat-storage": "^1.0.3",
+    "folder-walker": "^3.1.0",
+    "hyperdiscovery": "^7.0.0",
+    "hyperdrive": "^9.9.1",
+    "hyperdrive-http": "^4.2.2",
+    "minimist": "^1.2.0",
+    "stream-each": "^1.2.2"
+  },
+  "devDependencies": {},
+  "bin": {
+    "dat-tv": "./bin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/dat-tv.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/dat-tv/issues"
+  },
+  "homepage": "https://github.com/mafintosh/dat-tv"
+}
