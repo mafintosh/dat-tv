@@ -1,6 +1,6 @@
 {
   "name": "dat-tv",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Turn a Dat into a TV",
   "main": "index.js",
   "dependencies": {
