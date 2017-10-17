@@ -56,7 +56,7 @@ function play () {
         return a + b
       })
 
-      var offset = Math.floor(Date.now() / 1000) % Math.round(total)
+      var offset = Math.round(Date.now() / 1000) % Math.round(total)
 
       while (offset > list[0].duration) {
         var first = list.shift()
@@ -74,16 +74,29 @@ function play () {
       })
 
       server.listen(0, function () {
+        var first = null
         list.forEach(function (item) {
-          urls += 'http://localhost:' + server.address().port + item.name + '\n'
+          var u = 'http://localhost:' + server.address().port + item.name
+          if (!first) {
+            first = u
+            return
+          }
+          urls += u + '\n'
         })
         proc.spawn('mplayer', [
-          '-playlist', 'http://localhost:' + server.address().port,
+          first,
           '-ss', '' + offset
         ], {
           stdio: 'inherit'
         }).on('exit', function () {
-          process.exit()
+          if (!urls) return process.exit(0)
+          proc.spawn('mplayer', [
+            '-playlist', 'http://localhost:' + server.address().port
+          ], {
+            stdio: 'inherit'
+          }).on('exit', function () {
+            process.exit()
+          })
         })
       })
     })
