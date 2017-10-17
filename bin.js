@@ -83,6 +83,7 @@ function play () {
           }
           urls += u + '\n'
         })
+        urls += first + '\n'
         proc.spawn('mplayer', [
           first,
           '-ss', '' + offset
@@ -91,7 +92,8 @@ function play () {
         }).on('exit', function () {
           if (!urls) return process.exit(0)
           proc.spawn('mplayer', [
-            '-playlist', 'http://localhost:' + server.address().port
+            '-playlist', 'http://localhost:' + server.address().port,
+            '-loop', '0'
           ], {
             stdio: 'inherit'
           }).on('exit', function () {
