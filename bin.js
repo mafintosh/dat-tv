@@ -93,7 +93,7 @@ function play () {
           if (!urls) return process.exit(0)
           proc.spawn('mplayer', [
             '-playlist', 'http://localhost:' + server.address().port,
-            '-loop', '0'
+            '-loop', '045'
           ], {
             stdio: 'inherit'
           }).on('exit', function () {
@@ -112,7 +112,7 @@ function index () {
     function (data, next) {
       var filename = path.join(dir, data.filepath)
 
-      proc.exec('ffprobe -i ' + filename + ' -show_entries format=duration -v quiet -of csv="p=0"', function (err, out) {
+      proc.exec('ffprobe -i ' + JSON.stringify(filename) + ' -show_entries format=duration -v quiet -of csv="p=0"', function (err, out) {
         if (err) return next()
         out = out.trim()
         if (!out || !Number(out)) return next()
