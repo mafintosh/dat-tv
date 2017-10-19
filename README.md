@@ -21,7 +21,7 @@ Then use `dat-tv` to share it
 
 ``` sh
 # requires ffmpeg to share
-dat-tv my-dedia
+dat-tv my-media
 ```
 
 Running the above will print the dat key.
